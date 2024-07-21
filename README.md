@@ -27,12 +27,13 @@ Features
 
 ###Project Structure
 
+```plaintext
 starbound/
 ├── backend/
 │   ├── app/
 │   ├── authentication/
 │   ├── chatapp/
-│   └── profile/
+│   ├── profile/
 │   └── systems
 ├── frontend/
 │   ├── public/

@@ -25,7 +25,7 @@ Features
 - **Django REST Framework**: For creating and managing API endpoints.
 - **MySQL**: For a robust and scalable database solution.
 
-###Project Structure
+### Project Structure
 
 ```plaintext
 starbound/
@@ -51,6 +51,7 @@ starbound/
 ├── LICENSE
 ├── .gitattributes
 ├── .gitignore
+```plaintext
 
 ##Getting Started
 

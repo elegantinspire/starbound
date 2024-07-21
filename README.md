@@ -50,7 +50,7 @@ starbound/
 ├── LICENSE
 ├── .gitattributes
 ├── .gitignore
-```plaintext
+plaintext```
 
 ##Getting Started
 

@@ -3,12 +3,12 @@
 Starbound is a React and Django REST web application project designed to provide a modern, scalable, and efficient solution for a content website. 
 
 ## Features
-**User Authentication**: Secure login and registration using JWT.
-**Profile Management**: Users can update their profiles and view other users' profiles.
-**Messaging System**: A chat application with real-time messaging.
-**Updates**: Manage and display information.
-**Help Center**: FAQs for assistance.
-**Responsive Design**: Mobile-friendly layout for accessibility on all devices.
+- **User Authentication**: Secure login and registration using JWT.
+- **Profile Management**: Users can update their profiles and view other users' profiles.
+- **Messaging System**: A chat application with real-time messaging.
+- **Updates**: Manage and display information.
+- **Help Center**: FAQs for assistance.
+- **Responsive Design**: Mobile-friendly layout for accessibility on all devices.
 
 ## Technical Stack
 

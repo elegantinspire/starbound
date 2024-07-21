@@ -120,7 +120,7 @@ WSGI_APPLICATION = 'system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'portfolio',
+        'NAME': 'database',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',   # or '127.0.0.1' for local MySQL server

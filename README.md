@@ -169,7 +169,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 Starbound is designed to be a modern, scalable, and efficient solution for content websites. We welcome contributions and feedback from the community to improve and expand the project.
-
-```
-
-```

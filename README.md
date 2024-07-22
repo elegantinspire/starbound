@@ -25,7 +25,7 @@ Starbound is a React and Django REST web application project designed to provide
 - **Django REST Framework**: For creating and managing API endpoints.
 - **MySQL**: For a robust and scalable database solution.
 
-###Project Structure
+### Project Structure
 
 ```plaintext
 starbound/

@@ -51,6 +51,7 @@ starbound/
 ├── LICENSE
 ├── .gitattributes
 ├── .gitignore
+```
 
 ##Getting Started
 

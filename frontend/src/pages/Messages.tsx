@@ -205,7 +205,7 @@ const ChatContainer: React.FC = () => {
   };
 
   if (!isAuthenticated) {
-    return <p>Please login to view messages.</p>;
+    return <p>Please SignIn to view messages.</p>;
   }
 
   if (isLoading) {

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-interface LogoutModalProps {
+interface SignOutModalProps {
   showModal: boolean;
   setShowModal: (show: boolean) => void;
   onConfirm: () => void;
   onCancel: () => void;
 }
 
-const LogoutModal: React.FC<LogoutModalProps> = ({
+const SignOutModal: React.FC<SignOutModalProps> = ({
   showModal,
   setShowModal,
   onConfirm,
@@ -18,7 +18,7 @@ const LogoutModal: React.FC<LogoutModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
       <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-lg w-full p-6">
-        <h2 className="text-xl font-semibold mb-4">Confirm Logout</h2>
+        <h2 className="text-xl font-semibold mb-4">Confirm Sign Out</h2>
         <p className="mb-6">Are you sure you want to log out?</p>
         <div className="flex justify-end">
           <button
@@ -45,4 +45,4 @@ const LogoutModal: React.FC<LogoutModalProps> = ({
   );
 };
 
-export default LogoutModal;
+export default SignOutModal;

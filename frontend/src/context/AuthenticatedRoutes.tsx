@@ -8,7 +8,7 @@ interface AuthenticatedRoutesProps {
 const AuthenticatedRoutes: React.FC<AuthenticatedRoutesProps> = ({
   isAuthenticated,
 }) => {
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />;
 };
 
 export default AuthenticatedRoutes;

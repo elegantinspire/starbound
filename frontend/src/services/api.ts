@@ -5,7 +5,7 @@ import {
   Place,
   Activity,
   AuthResponse,
-  Register,
+  SignUp,
   Profile,
   AccountSettings,
   FAQ,
@@ -15,15 +15,15 @@ import {
   Post,
 } from '../types/types'; // Adjust the import path as necessary
 
-export const register = (userData: Register): Promise<AxiosResponse<void>> => {
-  return axiosInstanceNoAuth.post<void>('/register/', userData);
+export const signup = (userData: SignUp): Promise<AxiosResponse<void>> => {
+  return axiosInstanceNoAuth.post<void>('/signup/', userData);
 };
 
-export const login = (userData: {
+export const signin = (userData: {
   username: string;
   password: string;
 }): Promise<AxiosResponse<AuthResponse>> => {
-  return axiosInstanceNoAuth.post<AuthResponse>('/login/', userData);
+  return axiosInstanceNoAuth.post<AuthResponse>('/signin/', userData);
 };
 
 export const fetchUser = async (): Promise<User> => {

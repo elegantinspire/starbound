@@ -8,7 +8,7 @@ import Posts from './pages/Posts';
 import SinglePost from './pages/SinglePost';
 import NotFound from './pages/NotFound';
 import SignUp from './pages/SignUp';
-import LogIn from './pages/LogIn';
+import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
 import FAQPage from './pages/Faq';
 import ProfileLayout from './layouts/ProfileLayout';
@@ -48,12 +48,12 @@ const AppRoutes: React.FC = () => {
         }
       />
       <Route
-        path="/login"
+        path="/signin"
         element={
           isAuthenticated ? (
             <Navigate to={defaultAuthenticatedRoute} />
           ) : (
-            <LogIn />
+            <SignIn />
           )
         }
       />

@@ -8,7 +8,7 @@ import React, {
 import { useNavigate } from 'react-router-dom';
 import { fetchUser, fetchProfile } from '../services/api';
 import { User, AuthContextType, Profile } from '../types/types';
-import LogoutModal from '../components/Models/LogOutModal';
+import SignOutModal from '../components/Modals/SignOutModal';
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [showSignOutModal, setShowSignOutModal] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
@@ -57,17 +57,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  const login = (tokens: { access: string; refresh: string }) => {
+  const signin = (tokens: { access: string; refresh: string }) => {
     localStorage.setItem('access_token', tokens.access);
     localStorage.setItem('refresh_token', tokens.refresh);
     setIsAuthenticated(true);
   };
 
-  const logout = () => {
-    setShowLogoutModal(true);
+  const signout = () => {
+    setShowSignOutModal(true);
   };
 
-  const confirmLogout = () => {
+  const confirmSignOut = () => {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     setIsAuthenticated(false);
@@ -77,14 +77,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, loading, user, profile, login, logout }}
+      value={{ isAuthenticated, loading, user, profile, signin, signout }}
     >
       {children}
-      <LogoutModal
-        showModal={showLogoutModal}
-        setShowModal={setShowLogoutModal}
-        onConfirm={confirmLogout}
-        onCancel={() => setShowLogoutModal(false)} // Handle cancel action
+      <SignOutModal
+        showModal={showSignOutModal}
+        setShowModal={setShowSignOutModal}
+        onConfirm={confirmSignOut}
+        onCancel={() => setShowSignOutModal(false)} // Handle cancel action
       />
     </AuthContext.Provider>
   );

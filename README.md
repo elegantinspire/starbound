@@ -4,7 +4,7 @@ Starbound is a React and Django REST web application project designed to provide
 
 ## Features
 
-- **User Authentication**: Secure login and registration using JWT.
+- **User Authentication**: Secure sign in and sign up using JWT.
 - **Profile Management**: Users can update their profiles and view other users' profiles.
 - **Messaging System**: A chat application with real-time messaging.
 - **Updates**: Manage and display information.
@@ -92,6 +92,7 @@ sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
    py -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    pip install -r requirements.txt
+   py manage.py makemigrations
    py manage.py migrate
    py load_initial_data.py # Populate Database with Sample data
    py manage.py runserver

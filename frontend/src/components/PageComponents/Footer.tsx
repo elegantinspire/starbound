@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                       <a href="#">Sign Up</a>
                     </li>
                     <li className="py-1 hover:text-white">
-                      <a href="#">Login</a>
+                      <a href="#">SignIn</a>
                     </li>
                   </ul>
                 </div>

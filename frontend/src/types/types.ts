@@ -8,7 +8,7 @@ export interface User {
   email: string;
 }
 
-export interface Register extends Omit<User, 'id'> {
+export interface SignUp extends Omit<User, 'id'> {
   password: string;
 }
 export interface Profile {
@@ -27,8 +27,8 @@ export interface Profile {
 export interface AuthContextType {
   isAuthenticated: boolean;
   loading: boolean;
-  login: (tokens: { access: string; refresh: string }) => void;
-  logout: () => void;
+  signin: (tokens: { access: string; refresh: string }) => void;
+  signout: () => void;
   user: User | null;
   profile: Profile | null;
 }

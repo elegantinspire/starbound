@@ -8,7 +8,7 @@ import ScrollToTop from './components/Common/ScrollToTop';
 
 const App: React.FC = () => {
   const location = useLocation();
-  const noHeaderFooterPaths = ['/login']; // Add paths where you don't want header and footer
+  const noHeaderFooterPaths = ['/signin', '/signup']; // Add paths where you don't want header and footer
 
   const showHeaderFooter = !noHeaderFooterPaths.includes(location.pathname);
 

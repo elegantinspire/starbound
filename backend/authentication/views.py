@@ -3,16 +3,16 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from rest_framework.permissions import AllowAny
-from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
+from .serializers import SignUpSerializer, SignInSerializer, UserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 
-class RegisterView(generics.CreateAPIView):
+class SignUpView(generics.CreateAPIView):
     queryset = User.objects.all()
-    serializer_class = RegisterSerializer
+    serializer_class = SignUpSerializer
     permission_classes = [AllowAny]
 
-class LoginView(generics.GenericAPIView):
-    serializer_class = LoginSerializer
+class SignInView(generics.GenericAPIView):
+    serializer_class = SignInSerializer
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):

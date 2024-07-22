@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const Header: React.FC = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, signout } = useAuth();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -125,20 +125,20 @@ const Header: React.FC = () => {
                       <UserIcon />
                     </Link>
                     <button
-                      onClick={logout}
+                      onClick={signout}
                       className="nav-links flex items-center h-full px-1 font-semibold text-gray-800 hover:text-blue-600 hover:border-b-4 border-white"
                     >
-                      Logout
+                      Sign Out
                     </button>
                   </>
                 ) : (
                   <>
                     <Link
-                      to="/login"
+                      to="/signin"
                       className="nav-links flex items-center h-full px-1 font-semibold text-gray-800 hover:text-blue-600 hover:border-b-4 border-white"
                       onClick={closeMobileMenu}
                     >
-                      Log In
+                      Sign In
                     </Link>
                   </>
                 )}

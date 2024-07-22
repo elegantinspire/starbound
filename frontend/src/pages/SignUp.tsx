@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { register } from '../services/api';
+import { signup } from '../services/api';
 import LogoIcon from '../components/UI/Icons/Logo';
 import UserIcon from '../components/UI/Icons/User';
 import EyeIcon from '../components/UI/Icons/Eye';
@@ -23,14 +23,14 @@ const SignUp: React.FC = () => {
       return;
     }
     try {
-      await register({
+      await signup({
         username,
         email,
         first_name: '',
         last_name: '',
         password,
       });
-      navigate('/login');
+      navigate('/signin');
     } catch (error) {
       setError('Registration failed');
     }
@@ -52,7 +52,7 @@ const SignUp: React.FC = () => {
             <p className="text-sm mt-12 text-gray-800">
               Already have an account?{' '}
               <Link
-                to="/login"
+                to="/signin"
                 className="text-blue-600 font-semibold hover:underline ml-1"
               >
                 Log In here
@@ -187,7 +187,7 @@ const SignUp: React.FC = () => {
                 <p className="text-gray-800 text-sm text-center">
                   Already have an account?{' '}
                   <Link
-                    to="/login"
+                    to="/signin"
                     className="text-blue-600 font-semibold hover:underline ml-1"
                   >
                     Log In here

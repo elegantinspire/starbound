@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login as loginApi } from '../services/api';
+import { signin as signinApi } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import LogoIcon from '../components/UI/Icons/Logo';
 import UserIcon from '../components/UI/Icons/User';
@@ -9,25 +9,28 @@ import GoogleIcon from '../components/UI/Icons/Google';
 import FaceBookIcon from '../components/UI/Icons/FaceBook';
 import AppleIcon from '../components/UI/Icons/Apple';
 
-const LogIn: React.FC = () => {
+const SignIn: React.FC = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { signin } = useAuth();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await loginApi({ username, password });
+      const response = await signinApi({ username, password });
       if (response.data.access && response.data.refresh) {
-        login({ access: response.data.access, refresh: response.data.refresh });
-        navigate('/profile'); // Redirect to the profile page after successful login
+        signin({
+          access: response.data.access,
+          refresh: response.data.refresh,
+        });
+        navigate('/profile'); // Redirect to the profile page after successful signin
       } else {
-        setError('Login failed: No tokens received');
+        setError('Sign In failed: No tokens received');
       }
     } catch (error) {
-      setError('Login failed');
+      setError('Sign In failed');
     }
   };
 
@@ -37,10 +40,10 @@ const LogIn: React.FC = () => {
         <div className="grid md:grid-cols-2 items-center gap-10 max-w-6xl w-full">
           <div>
             <h2 className="lg:text-5xl text-4xl font-extrabold lg:leading-[55px] text-gray-800">
-              Effortless Login for Exclusive Access
+              Effortless Sign In for Exclusive Access
             </h2>
             <p className="text-sm mt-6 text-gray-800">
-              Experience a smooth and intuitive login process with our
+              Experience a smooth and intuitive signin process with our
               user-friendly design. Gain instant and secure access to your
               account with ease.
             </p>
@@ -185,4 +188,4 @@ const LogIn: React.FC = () => {
   );
 };
 
-export default LogIn;
+export default SignIn;

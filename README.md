@@ -27,7 +27,7 @@ Starbound is a React and Django REST web application project designed to provide
 
 ###Project Structure
 
-````plaintext
+```plaintext
 starbound/
 ├── backend/
 │   ├── app/
@@ -61,7 +61,6 @@ starbound/
 - Python, pip and Django
 - MySQL
 
-
 Before installing the Python dependencies, ensure that the following system packages are installed:
 
 ```bash
@@ -73,61 +72,61 @@ sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
 
 1. **Clone the repository**:
 
-    ```bash
-    git clone https://github.com/elegantinspire/starbound.git
-    cd starbound
-    ```
+   ```bash
+   git clone https://github.com/elegantinspire/starbound.git
+   cd starbound
+   ```
 
 2. **Frontend Setup**:
 
-    ```bash
-    cd frontend
-    npm install
-    npm start
-    ```
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
 
 3. **Backend Setup**:
 
-    ```bash
-    cd ../backend
-    py -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    pip install -r requirements.txt
-    py manage.py migrate
-    py load_initial_data.py # Populate Database with Sample data
-    py manage.py runserver
-    ```
+   ```bash
+   cd ../backend
+   py -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   py manage.py migrate
+   py load_initial_data.py # Populate Database with Sample data
+   py manage.py runserver
+   ```
 
 4. **Database Configuration**:
 
-    Update the `DATABASES` setting in `backend/starbound_backend/settings.py` to match your MySQL configuration:
+   Update the `DATABASES` setting in `backend/starbound_backend/settings.py` to match your MySQL configuration:
 
-    ```python
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'database_name',
-            'USER': 'your_db_user',
-            'PASSWORD': 'your_db_password',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-    }
-    ```
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'database_name',
+           'USER': 'your_db_user',
+           'PASSWORD': 'your_db_password',
+           'HOST': 'localhost',
+           'PORT': '3306',
+       }
+   }
+   ```
 
 5. **Environment Variables**:
 
-    Create a `.env` file in the `backend` directory and add the necessary environment variables:
+   Create a `.env` file in the `backend` directory and add the necessary environment variables:
 
-    ```env
-    SECRET_KEY=your_secret_key
-    DEBUG=True
-    DATABASE_NAME=database_name
-    DATABASE_USER=your_db_user
-    DATABASE_PASSWORD=your_db_password
-    DATABASE_HOST=localhost
-    DATABASE_PORT=3306
-    ```
+   ```env
+   SECRET_KEY=your_secret_key
+   DEBUG=True
+   DATABASE_NAME=database_name
+   DATABASE_USER=your_db_user
+   DATABASE_PASSWORD=your_db_password
+   DATABASE_HOST=localhost
+   DATABASE_PORT=3306
+   ```
 
 ## Usage
 
@@ -135,15 +134,15 @@ sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
 
 - **Frontend**: Navigate to the `frontend` directory and run:
 
-    ```bash
-    npm start
-    ```
+  ```bash
+  npm start
+  ```
 
 - **Backend**: Navigate to the `backend` directory and run:
 
-    ```bash
-    py manage.py runserver
-    ```
+  ```bash
+  py manage.py runserver
+  ```
 
 The React frontend will be available at `http://localhost:3000`, and the Django backend will be available at `http://localhost:8000`.
 
@@ -170,4 +169,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 Starbound is designed to be a modern, scalable, and efficient solution for content websites. We welcome contributions and feedback from the community to improve and expand the project.
-````
+
+```
+
+```

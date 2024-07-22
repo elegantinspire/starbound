@@ -130,7 +130,6 @@ dist
 *.pyc
 __pycache__/
 db.sqlite3
-media/
 staticfiles/
 local_settings.py
 
@@ -144,10 +143,11 @@ local_settings.py
 frontend/build/
 frontend/node_modules/
 
-# Django migration files
-**/migrations/*.pyc
-**/migrations/*.py
-**/migrations/
+# Ignore all files in migrations directories
+**/migrations/*
+
+# But keep __init__.py files
+!**/migrations/__init__.py
 
 # Django environment files
 venv/

@@ -1,14 +1,14 @@
 # Starbound
 
-Starbound is a React and Django REST web application project designed to provide a modern, scalable, and efficient solution for a content website. 
+Starbound is a React and Django REST web application project designed to provide a modern, scalable, and efficient solution for a content website.
 
 ## Features
-Features
-- **User Authentication: Secure login and registration using JWT.
-- **Profile Management: Users can update their profiles and view other users' profiles.
-- **Messaging System: A chat application with real-time messaging.
-- **Updates: Manage and display information.
-- **Help Center: FAQs for assistance.
+
+- \*\*User Authentication: Secure login and registration using JWT.
+- \*\*Profile Management: Users can update their profiles and view other users' profiles.
+- \*\*Messaging System: A chat application with real-time messaging.
+- \*\*Updates: Manage and display information.
+- \*\*Help Center: FAQs for assistance.
 - **Responsive Design**: Mobile-friendly layout for accessibility on all devices.
 
 ## Technical Stack
@@ -27,7 +27,7 @@ Features
 
 ###Project Structure
 
-```plaintext
+````plaintext
 starbound/
 ├── backend/
 │   ├── app/
@@ -59,6 +59,14 @@ starbound/
 - Node.js and npm
 - Python, pip and Django
 - MySQL
+
+
+Before installing the Python dependencies, ensure that the following system packages are installed:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
+```
 
 ### Installation
 
@@ -161,3 +169,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 Starbound is designed to be a modern, scalable, and efficient solution for content websites. We welcome contributions and feedback from the community to improve and expand the project.
+````

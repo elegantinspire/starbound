@@ -1,6 +1,6 @@
 # Starbound
 
-Starbound is a React and Django REST web application project designed to provide a modern, scalable, and efficient solution for a content website.
+Starbound is a sophisticated web application project built with a React frontend and a Django REST framework backend. It is meticulously designed to offer a modern, scalable, and efficient solution for content-driven websites, focusing on high performance, maintainability, and a seamless user experience.
 
 ## Features
 

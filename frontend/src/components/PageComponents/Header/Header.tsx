@@ -103,7 +103,7 @@ const Header: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex-1 flex items-center justify-end text-slate-700 dark:text-slate-100">
+            <div className="flex items-center justify-end text-slate-700 dark:text-slate-100">
               <button className="flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center">
                 <SearchIcon />
               </button>
@@ -114,9 +114,9 @@ const Header: React.FC = () => {
                 </button>
               </div>
 
-              <div className="hidden md:flex items-center">
-                {isAuthenticated ? (
-                  <>
+              {isAuthenticated ? (
+                <>
+                  <div className="hidden md:flex items-center">
                     <Link
                       to="/profile"
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none flex items-center justify-center"
@@ -124,25 +124,27 @@ const Header: React.FC = () => {
                     >
                       <UserIcon />
                     </Link>
+                  </div>
+                  <div className="hidden md:flex items-center">
                     <button
                       onClick={signout}
                       className="nav-links flex items-center h-full px-1 font-semibold text-gray-800 hover:text-blue-600 hover:border-b-4 border-white"
                     >
                       Sign Out
                     </button>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      to="/signin"
-                      className="nav-links flex items-center h-full px-1 font-semibold text-gray-800 hover:text-blue-600 hover:border-b-4 border-white"
-                      onClick={closeMobileMenu}
-                    >
-                      Sign In
-                    </Link>
-                  </>
-                )}
-              </div>
+                  </div>
+                </>
+              ) : (
+                <div className="hidden md:flex items-center">
+                  <Link
+                    to="/signin"
+                    className="nav-links flex items-center h-full px-1 font-semibold text-gray-800 hover:text-blue-600 hover:border-b-4 border-white"
+                    onClick={closeMobileMenu}
+                  >
+                    Sign In
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

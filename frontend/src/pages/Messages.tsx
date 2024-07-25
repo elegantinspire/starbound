@@ -8,6 +8,10 @@ import {
 } from '../services/api'; // Adjust imports as needed
 import { useAuth } from '../context/AuthContext'; // Import useAuth hook from AuthContext
 import ProfileImage from '../components/UI/ProfileImage/ProfileImage';
+import ImageIcon from '../components/UI/Icons/Image';
+import PaperPlaneIcon from '../components/UI/Icons/PaperPlane';
+import PaperClipIcon from '../components/UI/Icons/PaperClip';
+import SmileIcon from '../components/UI/Icons/Smile';
 
 const ChatContainer: React.FC = () => {
   const { isAuthenticated, profile } = useAuth(); // Access isAuthenticated and profile from AuthContext
@@ -258,7 +262,7 @@ const ChatContainer: React.FC = () => {
         <div className="chat-input-container">
           <div className="chat-input">
             <button className="icon-button left">
-              <i className="fas fa-smile"></i>
+              <SmileIcon />
             </button>
             <input
               type="text"
@@ -272,13 +276,13 @@ const ChatContainer: React.FC = () => {
               }}
             />
             <button className="icon-button">
-              <i className="fas fa-paperclip"></i>
+              <PaperClipIcon />
             </button>
             <button className="icon-button">
-              <i className="fas fa-image"></i>
+              <ImageIcon />
             </button>
             <button className="send-button" onClick={handleSendMessage}>
-              <i className="fas fa-paper-plane"></i>
+              <PaperPlaneIcon />
             </button>
           </div>
         </div>

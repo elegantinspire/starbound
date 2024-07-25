@@ -2,8 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import axiosInstance from './AxiosInstance';
 import axiosInstanceNoAuth from './AxiosInstanceNoAuth';
 import {
-  Place,
-  Activity,
   AuthResponse,
   SignUp,
   Profile,
@@ -152,46 +150,6 @@ export const fetchOrders = async (): Promise<any> => {
   }
 };
 
-export const fetchPlaces = async (): Promise<Place[]> => {
-  try {
-    const response = await axiosInstanceNoAuth.get('/places/');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching places:', error);
-    throw error;
-  }
-};
-
-export const fetchPlace = async (id: string): Promise<Place> => {
-  try {
-    const response = await axiosInstanceNoAuth.get(`/places/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching place with id ${id}:`, error);
-    throw error;
-  }
-};
-
-export const fetchCards = async (): Promise<Place[]> => {
-  try {
-    const response = await axiosInstanceNoAuth.get('/places/');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching card data:', error);
-    throw error;
-  }
-};
-
-export const fetchActivities = async (): Promise<Activity[]> => {
-  try {
-    const response = await axiosInstanceNoAuth.get('/activities/');
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching activities:', error);
-    throw error;
-  }
-};
-
 const currencyApiUrl = 'https://api.exchangerate-api.com/v4/latest/USD';
 const countriesApiUrl = 'https://restcountries.com/v3.1/all';
 
@@ -245,7 +203,7 @@ export const fetchFAQ = async (id: number): Promise<FAQ> => {
 export const fetchConversations = async (): Promise<Conversation[]> => {
   try {
     const response = await axiosInstance.get('/chat/');
-    return response.data;
+    return response.data; // Assuming response.data is an array of conversations
   } catch (error) {
     console.error('Error fetching conversations:', error);
     throw error;
@@ -256,8 +214,10 @@ export const fetchMessages = async (
   conversationId: number
 ): Promise<Message[]> => {
   try {
-    const response = await axiosInstance.get(`/chat/${conversationId}/`);
-    return response.data;
+    const response = await axiosInstance.get(
+      `/chat/${conversationId}/messages/`
+    );
+    return response.data; // Assuming response.data contains the messages array
   } catch (error) {
     console.error('Error fetching messages:', error);
     throw error;

@@ -80,10 +80,6 @@ footer {
   color: #095bd5;
 }
 
-.profile-content {
-  height: calc(100vh - var(--navbar-height));
-}
-
 .home,
 .services,
 .products,

@@ -37,7 +37,7 @@ const Updates: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching travel updates:', error);
-        setError('Failed to load travel updates. Please try again.'); // Update error state
+        setError('Failed to load updates. Please try again.'); // Update error state
       } finally {
         setIsLoading(false);
         setIsFetchingMore(false);
@@ -151,7 +151,7 @@ const Updates: React.FC = () => {
           )}
         </>
       ) : (
-        <p>No travel updates to display</p>
+        <p>No updates to display</p>
       )}
     </div>
   );

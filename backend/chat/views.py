@@ -1,5 +1,3 @@
-# views.py
-
 from rest_framework import generics, status
 from rest_framework.response import Response
 from django.http import Http404
@@ -15,6 +13,7 @@ CONVERSATION_DIR = os.path.join(BASE_DIR, 'chat', 'storage', 'conversations')
 @method_decorator(csrf_exempt, name='dispatch')
 class ConversationListView(generics.ListAPIView):
     serializer_class = ConversationSerializer
+    pagination_class = None  # This disables pagination for this view
 
     def get_queryset(self):
         conversations = []
@@ -23,7 +22,7 @@ class ConversationListView(generics.ListAPIView):
                 with open(os.path.join(CONVERSATION_DIR, filename), 'r') as file:
                     conversation_data = json.load(file)
                     conversations.append({
-                        'id': int(filename.split('.')[0]),  # Extract chat ID from filename
+                        'id': conversation_data.get('id', ''),
                         'title': conversation_data.get('title', ''),
                         'participants': conversation_data.get('participants', [])
                     })
@@ -82,3 +81,22 @@ class ConversationDetailView(generics.RetrieveUpdateAPIView):
         instance = self.get_object()
         serializer = self.serializer_class(instance=instance)
         return Response(serializer.data)
+
+
+# Add a new view for fetching all messages without pagination
+@method_decorator(csrf_exempt, name='dispatch')
+class MessageListView(generics.ListAPIView):
+    serializer_class = MessageSerializer
+    pagination_class = None  # This disables pagination for this view
+
+    def get_queryset(self):
+        conversation_id = self.kwargs.get('conversation_id')
+        filename = os.path.join(CONVERSATION_DIR, f"{conversation_id}.json")
+        
+        if not os.path.exists(filename):
+            raise Http404("Conversation does not exist")
+        
+        with open(filename, 'r') as file:
+            conversation_data = json.load(file)
+        
+        return conversation_data.get('messages', [])

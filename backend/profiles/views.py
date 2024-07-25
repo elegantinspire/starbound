@@ -48,6 +48,7 @@ class TripDetailView(generics.RetrieveUpdateDestroyAPIView):
 class HistoryView(generics.ListAPIView):
     serializer_class = TripSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = None  # This disables pagination for this view
 
     def get_queryset(self):
         return Trip.objects.filter(date__lt=timezone.now())
@@ -57,6 +58,8 @@ class WishlistView(generics.ListCreateAPIView):
     queryset = Wishlist.objects.all()
     serializer_class = WishlistSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = None  # This disables pagination for this view
+
 
 class WishlistDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Wishlist.objects.all()
@@ -67,6 +70,7 @@ class OrderView(generics.ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [permissions.IsAuthenticated]
+    pagination_class = None  # This disables pagination for this view
 
 
 class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):

@@ -94,32 +94,6 @@ export interface FetchPostsResponse {
   totalPages: number;
 }
 
-export interface PlaceImage {
-  id: number;
-  image_url: string;
-}
-
-export interface ThingToSee {
-  id: number;
-  name: string;
-  description: string;
-  images: PlaceImage[];
-}
-
-export interface Place {
-  id: number;
-  name: string;
-  description: string;
-  images: PlaceImage[];
-  things_to_see: ThingToSee[];
-}
-export interface Activity {
-  id: number;
-  name: string;
-  description: string;
-  images: Image[];
-}
-
 export interface FAQ {
   id: number;
   question: string;
@@ -166,4 +140,18 @@ export interface Update {
   timestamp: string;
   is_read: boolean;
   profile_image: string;
+}
+
+export interface Wishlist {
+  id: number;
+  destination: string;
+  description: string;
+}
+
+export interface Order {
+  id: number;
+  destination: string;
+  start_date: string;
+  end_date: string;
+  status: string;
 }

@@ -89,13 +89,13 @@ sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
 
    ```bash
    cd ../backend
-   py -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    pip install -r requirements.txt
-   py manage.py makemigrations
-   py manage.py migrate
-   py load_initial_data.py # Populate Database with Sample data
-   py manage.py runserver
+   python manage.py makemigrations
+   python manage.py migrate
+   python load_initial_data.py # Populate Database with Sample data
+   python manage.py runserver
    ```
 
 4. **Database Configuration**:
@@ -142,7 +142,7 @@ sudo apt-get install -y python3-dev default-libmysqlclient-dev build-essential
 - **Backend**: Navigate to the `backend` directory and run:
 
   ```bash
-  py manage.py runserver
+  python manage.py runserver
   ```
 
 The React frontend will be available at `http://localhost:3000`, and the Django backend will be available at `http://localhost:8000`.

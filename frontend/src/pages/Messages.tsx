@@ -27,7 +27,6 @@ const ChatContainer: React.FC = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      console.log('User is not authenticated');
       return;
     }
 

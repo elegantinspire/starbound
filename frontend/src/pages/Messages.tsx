@@ -24,6 +24,7 @@ const ChatContainer: React.FC = () => {
     [key: number]: Message[];
   }>({});
   const headerRef = useRef<HTMLDivElement>(null);
+  const chatMessagesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -49,6 +50,18 @@ const ChatContainer: React.FC = () => {
 
     fetchInitialData();
   }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  }, [selectedConversation]);
+
+  useEffect(() => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  }, [cachedMessages]);
 
   const handleConversationSelect = async (conversation: Conversation) => {
     setIsLoading(true);
@@ -176,7 +189,12 @@ const ChatContainer: React.FC = () => {
       );
     });
 
-    return messagesWithHeaders;
+    return (
+      <>
+        {messagesWithHeaders}
+        <div ref={chatMessagesRef} />
+      </>
+    );
   };
 
   const sameDate = (date1: Date, date2: Date): boolean => {
@@ -235,7 +253,7 @@ const ChatContainer: React.FC = () => {
                   conversation={conversation}
                   profile={profile}
                 />
-                <h3>{getConversationTitle(conversation)}</h3>
+                <p>{getConversationTitle(conversation)}</p>
               </div>
             </div>
           ))}
@@ -247,7 +265,7 @@ const ChatContainer: React.FC = () => {
             <div className="chat-header">
               <h2>{getConversationTitle(selectedConversation)}</h2>
             </div>
-            <div className="chat-messages">
+            <div className="chat-messages" ref={chatMessagesRef}>
               {selectedConversation.messages.length ? (
                 renderMessagesWithDateHeaders(selectedConversation.messages)
               ) : (
